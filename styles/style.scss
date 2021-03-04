@@ -1,0 +1,249 @@
+@mixin center-all {
+    //Centraliza vertical e horizontalmente os filhos imediatos
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin pretty-logo ($container-width) {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    width: $container-width;
+    margin-right: 5px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include center-all();
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #000;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /*Tamanho exato para ficar legal num pdf*/
+    width: 793px;
+    height: 1122px;
+}
+
+.big{
+    font-size: 15px;
+}
+.bold{
+    font-weight: bold !important;
+    font-size: 13px !important;
+}
+.big-and-bold{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.blank-space{
+    padding: 9px;
+}
+
+.margin-t-1{
+    margin-top: 0.3rem;
+}
+
+.margin-b-1{
+    margin-bottom: 0.3rem;
+}
+.margin-b-2{
+    margin-bottom: 0.7rem;
+}
+
+.paycheck{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 31%;
+    border: solid #000 1px;
+}
+
+.paycheck::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -3.5%;
+    border-bottom: dashed #000 1px;
+}
+
+.left-content{
+    width: 27%;
+    height: 100%;
+    border-right: dashed #000 1px;
+    padding: 10px;
+
+    .logo-and-due{
+        display: flex;
+        width: 100%;
+        height: 27%;
+        padding-bottom: 13px;
+        border-bottom: solid #000 1px;
+    }
+
+    .logo-container{
+        @include pretty-logo(50%)
+    }
+    .logo-container img{
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .due{
+        width: 50%;
+
+        .big{
+            text-align: center;
+            padding-bottom: 3px;
+            border-bottom: solid #000 1px;
+        }
+        .big-and-bold{
+            text-align: center;
+        }
+    }
+
+    .document-payment{
+        height: 72%;
+
+        .document-number, 
+        .document-value, 
+        .document-extras{
+            padding: 5px;
+            border-bottom: solid #000 1px;
+        }
+        .document-total-and-date{
+            padding: 5px;
+        }
+        .big-and-bold{
+            text-align: right;
+        }
+    }
+}
+
+.right-content{
+    height: 100%;
+    width: 73%;
+}
+
+.full-content{
+    display: flex;
+    height: 80%;
+    border-bottom: solid #000 1px;
+}
+
+.center-content{
+    width: 75%;
+    height: 100%;
+    padding: 2px;
+
+    .top{
+        display: flex;
+        height: 35%;
+        padding: 5px 5px 11px 5px;
+
+        .logo-container{
+            @include pretty-logo(27%)
+        }
+        .logo-container img{
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .location-and-contact p{
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+
+        p.bold{
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .middle{
+        display: flex;
+        height: 17%;
+        text-align: center;
+        border: {
+            top: solid #000 1px;
+            bottom: solid #000 1px;
+        }
+
+        .document-number,
+        .money-species,
+        .process-date{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            flex: 1;
+        }
+
+        .money-species{
+            border: {
+                left: solid #000 1px;
+                right: solid #000 1px;
+            }
+        }
+    }
+
+    .observations{
+        height: 48%;
+        padding: 5px;
+
+        p{
+            height: 50%;
+        }
+    }
+}
+
+.payment-content{
+    width: 25%;
+    height: 100%;
+    border-left: solid #000 1px;
+
+    .due{
+        p{
+            padding: 5px;
+        }
+        .big{
+            text-align: center;
+            padding-bottom: 3px;
+            border-bottom: solid #000 1px;
+        }
+        .big-and-bold{
+            text-align: left;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            border-bottom: solid #000 1px;
+        }
+    }
+
+    .document-number, 
+    .document-value, 
+    .document-extras{
+        padding: 5px;
+        border-bottom: solid #000 1px;
+    }
+    .document-total-and-date{
+        padding: 5px;
+    }
+    .big-and-bold{
+        text-align: right;
+    }
+}
+
+.footer{
+    padding: 5px;
+}
